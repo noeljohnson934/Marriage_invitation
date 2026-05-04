@@ -275,14 +275,31 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 80px;
-    background: radial-gradient(circle at center, #ffffff 0%, var(--bg-color) 100%);
+    padding: 8rem 2rem 5rem 2rem;
+    background-color: var(--bg-color);
+    position: relative;
     overflow: hidden;
+}
+
+.hero-caricature {
+    position: absolute;
+    left: 5%;
+    bottom: 0;
+    width: 350px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-caricature img {
+    width: 100%;
+    height: auto;
+    animation: floatImage 6s ease-in-out infinite;
 }
 
 .hero-content {
     text-align: center;
-    max-width: 900px;
+    z-index: 2;
+    max-width: 800px;
     padding: 0 20px;
 }
 
@@ -756,6 +773,9 @@ h6 {
     }
 
     /* Hero Section */
+    .hero-caricature { 
+        display: none; 
+    }
     .hero-names {
         font-size: 3rem;
     }
