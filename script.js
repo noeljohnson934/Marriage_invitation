@@ -1,4 +1,14 @@
 // ===========================
+// PRELOADER
+// ===========================
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    if (loader) {
+        loader.classList.add('fade-out');
+    }
+});
+
+// ===========================
 // CONFIGURATION
 // ===========================
 
@@ -133,27 +143,31 @@ if (musicToggle && backgroundMusic) {
                     noteInterval = setInterval(createNote, 400);
                 }
             }).catch((err) => {
-                console.log('Autoplay prevented:', err);
+                // Autoplay might still be blocked until a user click
+                console.log('Waiting for user interaction to start music');
             });
         }
     };
 
-    musicToggle.addEventListener('click', () => {
-        if (backgroundMusic.muted || backgroundMusic.paused) {
+    // Try playing on load
+    window.addEventListener('load', startMusic);
+
+    // High-priority triggers for browsers that block autoplay
+    document.addEventListener('click', startMusic, { once: true });
+    document.addEventListener('scroll', startMusic, { once: true });
+    document.addEventListener('touchstart', startMusic, { once: true });
+
+    musicToggle.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent document click from re-triggering
+        if (backgroundMusic.paused) {
             startMusic();
         } else {
-            backgroundMusic.muted = true;
             backgroundMusic.pause();
             musicToggle.classList.remove('playing');
             clearInterval(noteInterval);
             noteInterval = null;
         }
     });
-
-    // Auto-play on first user interaction anywhere on the page
-    document.addEventListener('click', startMusic, { once: true });
-    document.addEventListener('scroll', startMusic, { once: true });
-    document.addEventListener('touchstart', startMusic, { once: true });
 }
 
 // ===========================
