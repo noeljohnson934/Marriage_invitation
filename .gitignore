@@ -1,0 +1,31 @@
+# OS-specific files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node/build files
+node_modules/
+dist/
+build/
+*.log
+npm-debug.log*
+
+# Local development
+localhost/
+.env.local
+
+# IDE-specific
+.eslintignore
+.prettierignore
+
+# Temporary files
+*.tmp
+*.bak
+~*
