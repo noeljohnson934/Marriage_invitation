@@ -124,33 +124,36 @@ function createNote() {
 }
 
 if (musicToggle && backgroundMusic) {
+    const startMusic = () => {
+        if (backgroundMusic.paused) {
+            backgroundMusic.muted = false;
+            backgroundMusic.play().then(() => {
+                musicToggle.classList.add('playing');
+                if (!noteInterval) {
+                    noteInterval = setInterval(createNote, 400);
+                }
+            }).catch((err) => {
+                console.log('Autoplay prevented:', err);
+            });
+        }
+    };
+
     musicToggle.addEventListener('click', () => {
         if (backgroundMusic.muted || backgroundMusic.paused) {
-            backgroundMusic.muted = false;
-            backgroundMusic.play().catch(() => {
-                console.log('Music playback initiated');
-            });
-            musicToggle.classList.add('playing');
-            
-            // Start spawning notes
-            noteInterval = setInterval(createNote, 400);
+            startMusic();
         } else {
             backgroundMusic.muted = true;
             backgroundMusic.pause();
             musicToggle.classList.remove('playing');
-            
-            // Stop spawning notes
             clearInterval(noteInterval);
+            noteInterval = null;
         }
     });
 
-    document.addEventListener('click', () => {
-        if (backgroundMusic.paused && !backgroundMusic.muted) {
-            backgroundMusic.play().catch(() => {
-                console.log('Auto-play prevented by browser');
-            });
-        }
-    }, { once: true });
+    // Auto-play on first user interaction anywhere on the page
+    document.addEventListener('click', startMusic, { once: true });
+    document.addEventListener('scroll', startMusic, { once: true });
+    document.addEventListener('touchstart', startMusic, { once: true });
 }
 
 // ===========================
