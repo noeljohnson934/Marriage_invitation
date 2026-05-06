@@ -975,20 +975,14 @@ h6 {
 /* Responsive Folio */
 @media (max-width: 992px) {
     .invitation-section {
-        padding: 6rem 1rem 2rem;
-        /* Increased top padding */
+        padding: 4rem 1rem 2rem; /* Reduced top padding as caricature is hidden */
         left: 0;
         overflow: visible;
         /* Prevent clipping */
     }
 
     .peeking-caricature {
-        width: 180px;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 10;
-        /* Ensure it's above the background */
+        display: none; /* Hidden on mobile per user request */
     }
 
     .folio-wrapper {
@@ -1610,7 +1604,7 @@ h6 {
         background: url('assets/full_caricature.jpg') no-repeat right top;
         background-size: cover;
         top: -20px;
-        left: -160px;
+        left: -140px;
         width: calc(100% + 202px);
         /* Compensate for the left offset to keep it full width */
         height: calc(100% + 28px);
