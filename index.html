@@ -30,15 +30,12 @@
 
             <div class="nav-links" id="navLinks">
                 <a href="#invitation" class="nav-item">The Invitation</a>
-                <a href="#families" class="nav-item">Our Families</a>
+                <!-- <a href="#families" class="nav-item">Our Families</a> -->
                 <a href="#details" class="nav-item">Venue</a>
                 <a href="#rsvp" class="nav-item">RSVP</a>
             </div>
 
             <div class="nav-controls" data-aos="fade-left">
-                <button class="music-toggle" id="musicToggle" title="Toggle Music">
-                    <i class="fas fa-music"></i>
-                </button>
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -60,30 +57,55 @@
         </div>
     </header>
 
-    <!-- Formal Invitation Message -->
+    <!-- Formal Invitation Message (Folio Style) -->
     <section class="invitation-section" id="invitation">
-        <div class="invitation-card" data-aos="zoom-in">
-            <div class="card-inner-border"></div>
-            <p class="invite-header" data-aos="fade-up">Together with their families,</p>
+        <div class="peeking-caricature" data-aos="fade-down" data-aos-delay="300">
+            <img src="assets/brideandgroomside.png" alt="Noel & Christeena Peeking">
+        </div>
+        <div class="folio-wrapper" data-aos="zoom-in">
+            <!-- Left Page -->
+            <div class="folio-page left-page">
+                <div class="folio-content">
+                    <p class="invite-header" data-aos="fade-up">Together with their families,</p>
+                    
+                    <div class="parents-block">
+                        <div class="side-group">
+                            <h2 class="invite-names">Johnson Ipe <br>&<br> Susan Johnson</h2>
+                            <p class="folio-address">Tharayil (H), Vakathanam, Kottayam</p>
+                        </div>
 
-            <h2 class="invite-names">Johnson Ipe <br>&<br> Susan Johnson</h2>
-            <p class="invite-text">and</p>
-            <h2 class="invite-names">Therasamma John</h2>
+                        <p class="invite-text small-ornament">and</p>
 
-            <p class="invite-text" style="margin-top: 2rem;">
-                Request the honor of your presence at the marriage of their children
-            </p>
+                        <div class="side-group">
+                            <h2 class="invite-names">Joy Thomas<br>&<br>Therasamma John</h2>
+                            <p class="folio-address">Kunnel (H), Vellayamkudy, Kerala</p>
+                        </div>
+                    </div>
+                    <div class="folio-ornament bottom-left">❀</div>
+                </div>
+            </div>
 
-            <h1 class="invite-names" style="font-size: 4.5rem; margin: 3rem 0;">Noel & Christeena</h1>
+            <!-- Central Fold Line -->
+            <div class="folio-spine"></div>
 
-            <p class="invite-text">
-                As they begin their new journey of love and commitment.
-            </p>
+            <!-- Right Page -->
+            <div class="folio-page right-page">
+                <div class="folio-content">
+                    <p class="invite-text request-line">Request the honor of your presence<br>at the marriage of their children</p>
+                    
+                    <h1 class="invite-names couple-names">Noel <br>&<br> Christeena</h1>
+
+                    <p class="invite-text journey-line">
+                        As they begin their new journey of<br>love and commitment.
+                    </p>
+                    <div class="folio-ornament top-right">❀</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Our Families Section -->
-    <section class="family-section section-content" id="families">
+    <!-- Our Families Section (Hidden for now) -->
+    <section class="family-section section-content" id="families" style="display: none;">
         <h2 class="section-title" data-aos="zoom-in">Our Families</h2>
 
         <div class="family-unified-card" data-aos="fade-up">
@@ -135,48 +157,67 @@
 
     <!-- Countdown Section -->
     <section class="countdown-section">
+        <canvas id="fireworksCanvas"></canvas>
         <div class="countdown-timer">
-            <div class="countdown-item" data-aos="flip-left" data-aos-delay="100">
+            <div class="countdown-item" data-aos="fade-up" data-aos-delay="100">
                 <div class="countdown-number" id="days">00</div>
                 <div class="countdown-label">Days</div>
             </div>
-            <div class="countdown-item" data-aos="flip-left" data-aos-delay="200">
+            <div class="countdown-item" data-aos="fade-up" data-aos-delay="200">
                 <div class="countdown-number" id="hours">00</div>
                 <div class="countdown-label">Hours</div>
             </div>
-            <div class="countdown-item" data-aos="flip-left" data-aos-delay="300">
+            <div class="countdown-item" data-aos="fade-up" data-aos-delay="300">
                 <div class="countdown-number" id="minutes">00</div>
-                <div class="countdown-label">Mins</div>
+                <div class="countdown-label">Minutes</div>
             </div>
-            <div class="countdown-item" data-aos="flip-left" data-aos-delay="400">
+            <div class="countdown-item" data-aos="fade-up" data-aos-delay="400">
                 <div class="countdown-number" id="seconds">00</div>
-                <div class="countdown-label">Secs</div>
+                <div class="countdown-label">Seconds</div>
             </div>
         </div>
     </section>
 
     <!-- When and Where Section with Map -->
     <section class="section-content" id="details">
-        <h2 class="section-title" data-aos="zoom-in-up">When And Where</h2>
-        <div class="event-details-grid">
-            <div class="event-card" data-aos="fade-right" data-aos-delay="100">
-                <i class="fas fa-church event-icon"></i>
-                <h3>The Holy Matrimony</h3>
-                <p><strong>Sunday, 24 May 2026</strong></p>
-                <p>11:30 AM</p>
-                <p>Mar Gregorious Orthodox Church<br>Kottayam, Kerala</p>
+        <h2 class="section-title" data-aos="zoom-in-up">When & Where</h2>
+        <p class="section-subtitle" style="text-align: center; margin-bottom: 4rem;">Join us as we celebrate our union</p>
+        
+        <div class="venue-grid">
+            <!-- Ceremony Card -->
+            <div class="venue-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="venue-icon-wrapper">
+                    <i class="fas fa-church"></i>
+                </div>
+                <div class="venue-tag">Ceremony</div>
+                <h3 class="venue-title">The Holy Matrimony</h3>
+                <div class="venue-info">
+                    <p class="venue-date"><i class="far fa-calendar-alt"></i> Sunday, 24 May 2026</p>
+                    <p class="venue-time"><i class="far fa-clock"></i> 11:30 AM</p>
+                    <p class="venue-address">Mar Gregorious Orthodox Church<br>Kottayam, Kerala</p>
+                </div>
+                <a href="https://maps.google.com/maps?q=Mar+Gregorious+Orthodox+Church+Vakathanam+Kottayam" target="_blank" class="btn-venue">Get Directions</a>
             </div>
-            <div class="event-card" data-aos="fade-left" data-aos-delay="300">
-                <i class="fas fa-glass-cheers event-icon"></i>
-                <h3>Wedding Reception</h3>
-                <p><strong>Sunday, 24 May 2026</strong></p>
-                <p>1:00 PM onwards</p>
-                <p>Church Banquet Hall<br>Kottayam, Kerala</p>
+
+            <!-- Reception Card -->
+            <div class="venue-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="venue-icon-wrapper">
+                    <i class="fas fa-glass-cheers"></i>
+                </div>
+                <div class="venue-tag">Reception</div>
+                <h3 class="venue-title">Wedding Reception</h3>
+                <div class="venue-info">
+                    <p class="venue-date"><i class="far fa-calendar-alt"></i> Sunday, 24 May 2026</p>
+                    <p class="venue-time"><i class="far fa-clock"></i> 1:00 PM onwards</p>
+                    <p class="venue-address">Church Banquet Hall<br>Kottayam, Kerala</p>
+                </div>
+                <a href="https://maps.google.com/maps?q=Mar+Gregorious+Orthodox+Church+Vakathanam+Kottayam" target="_blank" class="btn-venue">Get Directions</a>
             </div>
         </div>
 
         <!-- Map -->
-        <div class="map-container" data-aos="fade-up">
+        <div class="map-wrapper" data-aos="zoom-in">
+
             <iframe
                 src="https://maps.google.com/maps?q=Mar+Gregorious+Orthodox+Church+Vakathanam+Kottayam&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
@@ -192,52 +233,53 @@
             <p class="section-subtitle" data-aos="fade-up"
                 style="margin-bottom: 3rem; font-size: 1.5rem; font-family: 'Cormorant Garamond', serif; font-style: italic; color: #777;">
                 Please respond by April 24, 2026</p>
-            <div data-fs-success
-                style="display: none; text-align: center; color: #bba091; margin-bottom: 2rem; font-size: 1.5rem; font-family: 'Playfair Display', serif;">
-                Thank you! Your RSVP has been received.
-            </div>
-            <div data-fs-error
-                style="display: none; text-align: center; color: #d9534f; margin-bottom: 2rem; font-size: 1.2rem;">
-                Something went wrong. Please try again.
-            </div>
+            <div class="rsvp-centered-wrapper" data-aos="fade-up">
+                <!-- Form Side -->
+                <div class="rsvp-form-side">
+                    <div class="rsvp-form-header">
+                        <p class="form-tag">R.S.V.P</p>
+                        <h2 class="form-title">Kindly Respond</h2>
+                        <div class="form-divider"></div>
+                    </div>
 
-            <form id="rsvpForm" method="POST" class="rsvp-form" data-aos="zoom-in" data-aos-delay="200">
-                <div class="form-group">
-                    <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" data-fs-field
-                        required>
-                    <span data-fs-error="firstName" style="color: #d9534f; font-size: 0.8rem; margin-top: 5px;"></span>
+                    <form id="rsvpForm" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" placeholder="Your first name" data-fs-field required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Your last name" data-fs-field required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="example@email.com" data-fs-field required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="guests">How many are attending?</label>
+                            <select id="guests" name="guests" data-fs-field>
+                                <option value="1">1 Person</option>
+                                <option value="2">2 Persons</option>
+                                <option value="3">3 Persons</option>
+                                <option value="4">4+ Persons</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message (Optional)</label>
+                            <textarea id="message" name="message" placeholder="Special wishes or notes..." rows="3" data-fs-field></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-studio-submit" data-fs-submit-btn>
+                            Confirm Attendance
+                        </button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" data-fs-field
-                        required>
-                    <span data-fs-error="lastName" style="color: #d9534f; font-size: 0.8rem; margin-top: 5px;"></span>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email address" data-fs-field
-                        required>
-                    <span data-fs-error="email" style="color: #d9534f; font-size: 0.8rem; margin-top: 5px;"></span>
-                </div>
-                <div class="form-group">
-                    <label for="guests">No. of Guests</label>
-                    <select id="guests" name="guests" data-fs-field>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4+</option>
-                    </select>
-                </div>
-                <div class="form-group full-width">
-                    <label for="message">Message (Optional)</label>
-                    <input type="text" id="message" name="message" placeholder="Leave a message for the couple..."
-                        data-fs-field>
-                </div>
-                <div class="form-group full-width" style="text-align: center;">
-                    <button type="submit" class="btn-submit" data-fs-submit-btn>Confirm Attendance</button>
-                </div>
-            </form>
+            </div>
         </div>
     </section>
 
@@ -252,10 +294,26 @@
 
     <!-- Background Music -->
     <audio id="backgroundMusic" loop muted>
-        <source src="assets/bg_music.mp3" type="audio/mpeg">
+        <source src="assets/Music/bg_music.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Thank You Modal -->
+    <!-- Celebration Modal (Shows when time ends) -->
+    <div id="celebrationModal" class="modal-overlay">
+        <canvas id="celebrationCanvas"></canvas>
+        <div class="modal-content celebration-style" data-aos="zoom-in">
+            <button class="modal-close" id="closeCelebration">&times;</button>
+            <p class="section-subtitle" style="color: var(--accent-dark);">Today is the Day!</p>
+            <h2 class="modal-title">Noel & Christeena</h2>
+            <div class="celebration-divider">❀</div>
+            <p class="modal-message">
+                Our beautiful journey of love and commitment begins today. 
+                Thank you for being part of our special celebration!
+            </p>
+            <div class="modal-names">Married Today!</div>
+        </div>
+    </div>
+    
     <div id="thankYouModal" class="modal-overlay">
         <div class="modal-content" data-aos="zoom-in">
             <button class="modal-close" id="closeModal">&times;</button>
@@ -282,6 +340,14 @@
             }
         });
     </script>
+    <footer class="footer">
+        <p>Created by <a href="https://varmapradeep.github.io/varmapradeep/" target="_blank">keralavarma</a></p>
+    </footer>
+
+    <!-- Music Toggle Floating -->
+    <button class="music-toggle" id="musicToggle" title="Toggle Music">
+        <i class="fas fa-music"></i>
+    </button>
     <script src="script.js"></script>
 </body>
 
