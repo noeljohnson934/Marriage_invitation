@@ -316,13 +316,13 @@ h6 {
 }
 
 .section-subtitle {
-    font-family: 'Great Vibes', cursive;
-    font-size: 2.6rem;
+    font-family: var(--font-body);
+    font-size: 1.6rem;
     color: #9c8375;
     text-align: center;
     margin-bottom: 1rem;
     font-weight: 500;
-    text-shadow: -1px -1px 0 rgba(255,255,255,0.9), 1px -1px 0 rgba(255,255,255,0.9), -1px 1px 0 rgba(255,255,255,0.9), 1px 1px 0 rgba(255,255,255,0.9);
+    text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.9), 1px -1px 0 rgba(255, 255, 255, 0.9), -1px 1px 0 rgba(255, 255, 255, 0.9), 1px 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 /* ===========================
@@ -580,7 +580,7 @@ h6 {
 .hero-content {
     text-align: center;
     z-index: 2;
-    max-width: 780 rem;
+    max-width: 780rem;
     padding: 3rem;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
@@ -614,19 +614,119 @@ h6 {
 
 .hero-names {
     font-size: 4.4rem;
-    margin-bottom: 1.5rem;
+    font-family: 'Great Vibes', cursive;
     line-height: 1.1;
     letter-spacing: 1px;
     color: var(--primary-color);
 }
 
-.hero-date {
-    font-size: 1.3rem;
-    letter-spacing: 5px;
+/* THE BEST DESIGN (FIXED): Premium Save the Date Heart Banner */
+.hero-date-banner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: .5rem auto 0;
+    padding: 0 1.5rem;
+    z-index: 100;
+}
+
+/* Elegant horizontal bar with dynamic width */
+.hero-date-banner::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 38px;
+    background: rgba(0, 91, 92, 0.9);
+    /* Deep Teal */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    z-index: -1;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.date-wing {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    color: #9c8375;
-    font-weight: 500;
-    text-shadow: -1px -1px 0 rgba(255,255,255,0.9), 1px -1px 0 rgba(255,255,255,0.9), -1px 1px 0 rgba(255,255,255,0.9), 1px 1px 0 rgba(255,255,255,0.9);
+    position: relative;
+    z-index: 2;
+    padding: 0 1.8rem;
+    white-space: nowrap;
+}
+
+/* Perfect Center Heart with SEAMLESS BORDER */
+.date-heart {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 -15px;
+    /* Create the white outline around the whole composite heart */
+    filter:
+        drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white) drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white) drop-shadow(0 8px 15px rgba(0, 0, 0, 0.2));
+    animation: organicPulse 2s ease-in-out infinite;
+}
+
+.heart-shape {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #ff4757;
+    transform: rotate(-45deg);
+    z-index: 1;
+}
+
+.heart-shape::before,
+.heart-shape::after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    background: #ff4757;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart-shape::before {
+    top: -20px;
+    left: 0;
+}
+
+.heart-shape::after {
+    left: 20px;
+    top: 0;
+}
+
+.date-heart-text {
+    position: relative;
+    z-index: 20;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: white;
+    margin-top: -20px;
+    /* Pulled up to center in the heart's bulk */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+@keyframes organicPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
 }
 
 /* ===========================
@@ -797,13 +897,17 @@ h6 {
 }
 
 .groom-peek {
-    animation-delay: -1.5s; /* Staggered start */
+    animation-delay: -1.5s;
+    /* Staggered start */
 }
 
 @keyframes peekFloat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(0, 0) scale(1);
     }
+
     50% {
         transform: translate(5px, -5px) scale(1.02);
     }
@@ -813,7 +917,7 @@ h6 {
     width: 100%;
     height: auto;
     display: block;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
 }
 
 .folio-wrapper {
@@ -1704,8 +1808,18 @@ h6 {
 
 /* 1. TABLET & DESKTOP MODE (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
-    .hero-names { font-size: 4rem; }
-    .section-title { font-size: 2.4rem; }
+    .hero-names {
+        font-size: 4rem;
+    }
+
+    .section-title {
+        font-size: 2.4rem;
+    }
+
+    .hero {
+        padding: 10rem 7% 3rem 14%;
+        min-height: 75vh;
+    }
 
     .hero-bg-image {
         left: 0px !important;
@@ -1719,7 +1833,8 @@ h6 {
     .invitation-section {
         padding: 8rem 2rem;
         min-height: 65vh;
-        left: 30px; /* Reduced for tablet balance */
+        left: 30px;
+        /* Reduced for tablet balance */
         overflow: hidden;
         position: relative;
     }
@@ -1731,21 +1846,51 @@ h6 {
         box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
     }
 
-    .folio-page { padding: 3rem 2rem; flex: 1; }
-    .folio-spine { display: block; }
-    .invite-names { font-size: 2.2rem; }
-    .couple-names { font-size: 3.5rem; }
+    .folio-page {
+        padding: 3rem 2rem;
+        flex: 1;
+    }
 
-    .peeking-caricature { display: none; }
-    .single-peek { display: block; width: 150px; }
-    .bride-peek { top: 0px; left: 30px; }
-    .groom-peek { bottom: -5; right: 5px; }
+    .folio-spine {
+        display: block;
+    }
+
+    .invite-names {
+        font-size: 2.2rem;
+    }
+
+    .couple-names {
+        font-size: 3.5rem;
+    }
+
+    .peeking-caricature {
+        display: none;
+    }
+
+    .single-peek {
+        display: block;
+        width: 150px;
+    }
+
+    .bride-peek {
+        top: 0px;
+        left: 30px;
+    }
+
+    .groom-peek {
+        bottom: -5;
+        right: 5px;
+    }
 }
 
 /* 2. MOBILE (max-width: 768px) */
 @media (max-width: 768px) {
+
     /* Navbar */
-    .mobile-menu-btn { display: block; }
+    .mobile-menu-btn {
+        display: block;
+    }
+
     .nav-links {
         position: absolute;
         top: 100%;
@@ -1759,7 +1904,11 @@ h6 {
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
         transition: clip-path 0.4s ease-in-out;
     }
-    .nav-links.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+
+    .nav-links.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
     .nav-links a {
         padding: 1rem;
         display: block;
@@ -1768,63 +1917,185 @@ h6 {
     }
 
     /* Hero */
-    .hero { padding: 4rem 1.5rem 5rem 1.5rem; align-items: center; justify-content: flex-end; text-align: center; }
+    .hero {
+        padding: 4rem 1.5rem 5rem 1.5rem;
+        align-items: center;
+        justify-content: flex-end;
+        text-align: center;
+    }
+
     .hero-bg-image {
         -webkit-mask-image: none;
         mask-image: none;
         top: -20px;
         left: -100px;
         width: calc(100% + 202px);
-        height: calc(100% + 28px);
+        height: calc(100% + 15px);
         background: url('assets/full_caricature.jpg') no-repeat right top;
         background-size: cover;
     }
-    .hero-content { max-width: 100%; padding: 2rem 1.5rem; backdrop-filter: blur(15px); }
-    .hero-names { font-size: 2.2rem; line-height: 1.2; }
-    .section-subtitle { font-size: 1.3rem; margin-bottom: 1rem; text-shadow: -1px -1px 0 rgba(255,255,255,0.9), 1px -1px 0 rgba(255,255,255,0.9), -1px 1px 0 rgba(255,255,255,0.9), 1px 1px 0 rgba(255,255,255,0.9); }
+
+    .hero-content {
+        max-width: 100%;
+        padding: 2rem 1.5rem;
+        backdrop-filter: blur(15px);
+    }
+
+    .hero-names {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.9), 1px -1px 0 rgba(255, 255, 255, 0.9), -1px 1px 0 rgba(255, 255, 255, 0.9), 1px 1px 0 rgba(255, 255, 255, 0.9);
+    }
 
     /* Invitation */
-    .invitation-section { padding: 6rem 1rem 4rem; left: 0; overflow: hidden; position: relative; }
-    .peeking-caricature { display: none; }
-    .single-peek { display: block; width: 120px; z-index: 50; }
-    .bride-peek { top: -10px; left: 16px; }
-    .groom-peek { bottom: 0px; right: 0px; }
+    .invitation-section {
+        padding: 6rem 1rem 4rem;
+        left: 0;
+        overflow: hidden;
+        position: relative;
+    }
 
-    .folio-wrapper { flex-direction: column; margin: 0 5px; box-shadow: none; background: transparent; }
-    .folio-page { padding: 2rem 1.2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 10px; margin-bottom: 1rem; }
-    .folio-spine { display: none; }
-    .couple-names { font-size: 2.8rem; }
-    .invite-names { font-size: 1.8rem; }
+    .peeking-caricature {
+        display: none;
+    }
+
+    .single-peek {
+        display: block;
+        width: 120px;
+        z-index: 50;
+    }
+
+    .bride-peek {
+        top: -10px;
+        left: 16px;
+    }
+
+    .groom-peek {
+        bottom: 0px;
+        right: 0px;
+    }
+
+    .folio-wrapper {
+        flex-direction: column;
+        margin: 0 5px;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .folio-page {
+        padding: 2rem 1.2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .folio-spine {
+        display: none;
+    }
+
+    .couple-names {
+        font-size: 2.8rem;
+    }
+
+    .invite-names {
+        font-size: 1.8rem;
+    }
 
     /* Family Section Responsive Fix */
-    .family-unified-card { grid-template-columns: 1fr !important; padding: 3rem 1.5rem !important; }
-    .family-column { border-right: none !important; border-bottom: 1px solid rgba(0,0,0,0.05) !important; padding: 0 0 2rem 0 !important; margin-bottom: 2rem !important; }
+    .family-unified-card {
+        grid-template-columns: 1fr !important;
+        padding: 3rem 1.5rem !important;
+    }
+
+    .family-column {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+        padding: 0 0 2rem 0 !important;
+        margin-bottom: 2rem !important;
+    }
 
     /* Venue & Map */
-    .venue-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .map-wrapper { margin: 0 10px; border: 4px solid white; }
-    .map-wrapper iframe { height: 300px; }
+    .venue-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .map-wrapper {
+        margin: 0 10px;
+        border: 4px solid white;
+    }
+
+    .map-wrapper iframe {
+        height: 300px;
+    }
 
     /* RSVP */
-    .rsvp-split-wrapper { flex-direction: column; }
-    .rsvp-image-side { height: 250px; }
-    .rsvp-form-side { padding: 2rem 1.5rem; }
-    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .rsvp-split-wrapper {
+        flex-direction: column;
+    }
+
+    .rsvp-image-side {
+        height: 250px;
+    }
+
+    .rsvp-form-side {
+        padding: 2rem 1.5rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
 
     /* Timer */
-    .countdown-timer { flex-wrap: nowrap; gap: 0.5rem; }
-    .countdown-item { min-width: 65px; padding: 1rem 0.2rem; }
-    .countdown-number { font-size: 1.6rem; }
+    .countdown-timer {
+        flex-wrap: nowrap;
+        gap: 0.5rem;
+    }
+
+    .countdown-item {
+        min-width: 65px;
+        padding: 1rem 0.2rem;
+    }
+
+    .countdown-number {
+        font-size: 1.6rem;
+    }
 
     /* Utilities */
-    .music-toggle { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+    .music-toggle {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
 }
 
 /* 3. SMALL MOBILE (max-width: 480px) */
 @media (max-width: 480px) {
-    .hero-names { font-size: 1.8rem; }
-    .hero-date { font-size: 1rem; letter-spacing: 2px; text-shadow: -1px -1px 0 rgba(255,255,255,0.9), 1px -1px 0 rgba(255,255,255,0.9), -1px 1px 0 rgba(255,255,255,0.9), 1px 1px 0 rgba(255,255,255,0.9); }
-    .section-title { font-size: 1.6rem; }
-    .countdown-number { font-size: 1.4rem; }
-    .folio-page { padding: 2rem 1rem; }
+    .hero-names {
+        font-size: 1.8rem;
+    }
+
+    .hero-date-banner {
+        transform: scale(0.7);
+        margin-top: 0;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .countdown-number {
+        font-size: 1.4rem;
+    }
+
+    .folio-page {
+        padding: 2rem 1rem;
+    }
 }
