@@ -1,20 +1,29 @@
 /* ===========================
    VARIABLES & BASE STYLES
    =========================== */
+@font-face {
+    font-family: 'HughIsLife';
+    src: url('assets/fonts/Hugh is Life Personal Use .ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Geraldine';
+    src: url('assets/fonts/GERALDINE PERSONAL USE.ttf') format('truetype');
+}
+
 :root {
     --bg-color: #faf9f6;
-    /* Very soft off-white/cream */
     --text-main: #333333;
     --text-muted: #777777;
     --accent-color: #d8c3b5;
-    /* Soft champagne/dusty pink */
     --accent-dark: #bba091;
     --primary-color: #005b5c;
-    /* New Deep Teal */
     --white: #ffffff;
 
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Cormorant Garamond', serif;
+    --font-custom: 'HughIsLife', cursive;
+    --font-script: 'Geraldine', cursive;
 }
 
 * {
@@ -316,8 +325,9 @@ h6 {
 }
 
 .section-subtitle {
-    font-family: var(--font-body);
-    font-size: 1.6rem;
+    font-family: var(--font-custom);
+    font-size: 2.8rem;
+    /* Adjusted for this specific script font */
     color: #9c8375;
     text-align: center;
     margin-bottom: 1rem;
@@ -788,9 +798,9 @@ h6 {
 }
 
 .venue-title {
-    font-family: var(--font-heading);
+    font-family: var(--font-script);
     font-size: 2rem;
-    color: var(--text-main);
+    color: var(--primary-color);
     margin-bottom: 1.5rem;
 }
 
@@ -1012,7 +1022,7 @@ h6 {
     color: var(--primary-color);
     letter-spacing: 4px;
     text-transform: uppercase;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     /* Reduced to push parents up */
 }
 
@@ -1078,14 +1088,14 @@ h6 {
 }
 
 .request-line {
-    font-size: 1.4rem;
+    font-size: 1rem;
     line-height: 1.8;
     color: var(--text-main);
     font-style: italic;
 }
 
 .journey-line {
-    font-size: 1.3rem;
+    font-size: 1rem;
     margin-top: 2rem;
     color: var(--text-muted);
 }
@@ -1236,7 +1246,7 @@ h6 {
    COUNTDOWN
    =========================== */
 .countdown-section {
-    padding: 10rem 2rem;
+    padding: 5rem 2rem;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.pexels.com/photos/2395240/pexels-photo-2395240.jpeg');
     background-size: cover;
     background-position: center;
@@ -1873,12 +1883,12 @@ h6 {
     }
 
     .bride-peek {
-        top: 0px;
+        top: 30px;
         left: 30px;
     }
 
     .groom-peek {
-        bottom: -5;
+        bottom: -5px;
         right: 5px;
     }
 }
@@ -1944,6 +1954,10 @@ h6 {
     .hero-names {
         font-size: 2.2rem;
         line-height: 1.2;
+    }
+
+    #spsize {
+        font-size: 2.4rem;
     }
 
     .section-subtitle {
