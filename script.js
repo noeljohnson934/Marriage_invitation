@@ -3,8 +3,31 @@
 // ===========================
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
+    const openBtn = document.getElementById('openInviteBtn');
+    
+    // Show the button after a short delay so the logo/line animation plays first
+    setTimeout(() => {
+        if (openBtn) openBtn.classList.add('visible');
+    }, 1000);
+
     if (loader) {
-        loader.classList.add('fade-out');
+        loader.addEventListener('click', () => {
+            loader.classList.add('fade-out');
+            
+            // Show music toggle
+            const musicToggle = document.getElementById('musicToggle');
+            if (musicToggle) musicToggle.classList.add('visible');
+
+            // Trigger music immediately on click
+            if (window.playWeddingMusic) {
+                window.playWeddingMusic();
+            }
+            
+            // Re-init AOS to ensure animations trigger properly after reveal
+            setTimeout(() => {
+                AOS.refresh();
+            }, 500);
+        });
     }
 });
 
@@ -361,6 +384,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }).catch(error => console.log("Waiting for interaction..."));
         }
     }
+
+    // Expose playMusic to the global window object for the "Open Invitation" button
+    window.playWeddingMusic = playMusic;
 
     function handleFirstInteraction() {
         playMusic();
