@@ -4,7 +4,7 @@
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
     const openBtn = document.getElementById('openInviteBtn');
-    
+
     // Show the button after a short delay so the logo/line animation plays first
     setTimeout(() => {
         if (openBtn) openBtn.classList.add('visible');
@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
     if (loader) {
         loader.addEventListener('click', () => {
             loader.classList.add('fade-out');
-            
+
             // Show music toggle
             const musicToggle = document.getElementById('musicToggle');
             if (musicToggle) musicToggle.classList.add('visible');
@@ -22,7 +22,7 @@ window.addEventListener('load', () => {
             if (window.playWeddingMusic) {
                 window.playWeddingMusic();
             }
-            
+
             // Re-init AOS to ensure animations trigger properly after reveal
             setTimeout(() => {
                 AOS.refresh();
@@ -35,7 +35,7 @@ window.addEventListener('load', () => {
 // CONFIGURATION
 // ===========================
 
-const WEDDING_DATE = new Date('2026-05-24T11:30:00').getTime();
+const WEDDING_DATE = new Date('2026-05-10T12:54:00').getTime();
 
 // ===========================
 // INITIALIZE AOS (Animations On Scroll)
@@ -72,7 +72,7 @@ function updateCountdown() {
             announcement.setAttribute('data-aos', 'zoom-in');
             announcement.innerHTML = `
                 <p class="section-subtitle" style="color: #ffffff;">The Day of Love is Here!</p>
-                <h2 class="section-title" style="color: #ffffff; border: none; margin-bottom: 1rem;">Noel & Christeena</h2>
+                <h2 class="section-title" style=" font-family: 'Cormorant Garamond', serif; color: #ffffff; border: none; margin-bottom: 1rem;">Noel & Christeena</h2>
                 <p class="invite-text" style="color: #ffffff; font-size: 1.5rem; font-style: italic;">
                     "Married Today! Our journey together starts with your blessings."
                 </p>
