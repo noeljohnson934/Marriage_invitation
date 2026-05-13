@@ -35,7 +35,7 @@ window.addEventListener('load', () => {
 // CONFIGURATION
 // ===========================
 
-const WEDDING_DATE = new Date('2026-05-24T12:30:00').getTime();
+const WEDDING_DATE = new Date('2025-05-24T12:30:00').getTime();
 
 // ===========================
 // INITIALIZE AOS (Animations On Scroll)
